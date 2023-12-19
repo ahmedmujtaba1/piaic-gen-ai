@@ -8,7 +8,7 @@ This is some _markdown_.
 
 import pandas as pd
 df = pd.DataFrame({'col1': [1,2,3]})
-df  # 👈 Draw the dataframe
+df  # 👈 Draw the dataframe # MAGIC COMMAND 
 
 x = 10
 
