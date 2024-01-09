@@ -26,6 +26,21 @@ def student_form(name:str, email:str):
 def greet(who :str =Header()):
     return f"Hello {who}!"
 
+#POST -- Body
+@app.post('/hi_post_body')
+def greet(who :str =Body()):
+    return f"Hello {who}!"
+
+@app.post('/hi_post_body_json')
+def greet(who :str =Body(embed=True)):
+    return f"Hello {who}!"
+
+from model import Creature
+from data import get_creatures
+@app.get('/creatures')
+def get_all() -> list[Creature]:
+    return get_creatures()
+
 if __name__ == '__main__':
     import uvicorn
     uvicorn.run('hello:app', reload=True)
