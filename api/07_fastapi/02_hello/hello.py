@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Header, Body
 
 app = FastAPI()
 
@@ -21,6 +21,10 @@ def get_organization_student(org_name: str, sname: str):
 def student_form(name:str, email:str):
     return {"name" : name, "email" : email}
 
+#POST -- Header
+@app.post('/hi_post')
+def greet(who :str =Header()):
+    return f"Hello {who}!"
 
 if __name__ == '__main__':
     import uvicorn
